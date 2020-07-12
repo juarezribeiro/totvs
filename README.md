@@ -1,5 +1,5 @@
 #### FrontEnd
-
+AuctionFront/Auction
 Instalar o nodejs -> https://nodejs.org/en/
 Executar o comando -> npm install -g @angular/cli
 
@@ -9,7 +9,7 @@ Executar o comando no terminal -> ng serve
 O endreço do sistema é: http://localhost:4200/
 
 #### BackEnd
-
+Pasta: Auction
 Abra o Projeto no Visual Studio 2019.
 Verifique se o localdb esta instalado.
 
