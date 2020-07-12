@@ -11,6 +11,7 @@ O endreço do sistema é: http://localhost:4200/
 
 #### BackEnd
 Pasta: Auction
+
 Abra o Projeto no Visual Studio 2019.
 Verifique se o localdb esta instalado.
 
