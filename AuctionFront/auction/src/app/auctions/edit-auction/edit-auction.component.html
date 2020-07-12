@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <h3>Edit Auction</h3>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <form [formGroup]="auctionForm" (ngSubmit)="updateAuction()" *ngIf="!isLoading">
+        <div class="form-group">
+          <label for="auctionName">Auction Name</label>
+          <input type="text" id="auctionName" class="form-control" formControlName="auctionName">
+          <span *ngIf="!f.auctionName.valid && f.auctionName.touched" class="help-block">Please enter a valid
+            name</span>
+        </div>
+        <div class="form-group">
+          <label for="initialValue">Initial value</label>
+          <input type="number" id="initialValue" class="form-control" formControlName="initialValue">
+          <span *ngIf="!f.initialValue.valid && f.initialValue.touched" class="help-block">Please enter the
+            initial value</span>
+        </div>
+        <div class="form-group">
+          <label for="auctionOwner">Auction Owner</label>
+          <select id="auctionOwner" class="form-control" formControlName="auctionOwner">
+            <option *ngFor="let user of users" value={{user.userID}}>
+              {{user.name}}
+            </option>
+          </select>
+          <span *ngIf="!f.auctionOwner.valid && f.auctionOwner.touched" class="help-block">Please select an
+            auction owner</span>
+        </div>
+        <div class="form-group">
+          <label for="openingDate">Opening date</label>
+          <input type="date" id="openingDate" class="form-control" formControlName="openingDate">
+          <span *ngIf="!f.openingDate.valid && f.openingDate.touched" class="help-block">Please enter the
+            opening date</span>
+        </div>
+        <div class="form-group">
+          <label for="closingDate">Closing Date</label>
+          <input type="date" id="closingDate" class="form-control" formControlName="closingDate">
+          <span *ngIf="!f.closingDate.valid && f.closingDate.touched" class="help-block">Please enter the
+            closing date</span>
+        </div>
+        <div>
+          <legend>Condition</legend>
+          <div class="radio" *ngFor="let condition of conditions">
+            <label for="condition">
+              <input type="radio" formControlName="condition" [value]="condition">{{ condition }}
+            </label>
+            <span *ngIf="!f.condition.valid && f.condition.touched" class="help-block">Please select the
+              condition</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!auctionForm.valid">Edit</button>
+      </form>
+    </div>
+  </div>
+</div>
