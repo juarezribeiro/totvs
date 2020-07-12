@@ -23,6 +23,4 @@ Executar o projeto e aguardar alguns segundos.
 
 Todos usuários possuem a senha 1234.
 São os logins:
-admin
-juarez
-test -> com status desabilitado
+admin, juarez e test -> com status desabilitado
