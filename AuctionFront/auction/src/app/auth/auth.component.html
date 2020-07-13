@@ -21,7 +21,12 @@
       </div>
       <div style="text-align: center;">
         <app-loading-spinner *ngIf="isLogged"></app-loading-spinner>
-        <button type="submit" class="btn btn-primary" *ngIf="!isLogged">
+        <button
+          type="submit"
+          class="btn btn-primary"
+          *ngIf="!isLogged"
+          [disabled]="!loginForm.valid"
+        >
           Login
         </button>
       </div>
