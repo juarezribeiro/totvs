@@ -17,6 +17,7 @@ Verifique se o localdb esta instalado.
 
 Instalar o localDb:
 Ferramentas -> Obter Ferramentas e Funcionalidades. abrindo o setup de instalação do Visual Studio, acesse Componentes individuais e procure por SQL Server Express 2016 LocalDB.
+
 Tools -> Get Tools and Features
 
 Executar o projeto e aguardar alguns segundos.
