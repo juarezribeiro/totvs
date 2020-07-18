@@ -1,23 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AuctionsService } from 'src/app/services/auctions.service';
-import { UsersService } from 'src/app/services/users.service';
-import { formatDate } from '@angular/common';
+import { Component, OnInit } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { ActivatedRoute, Params, Router } from "@angular/router";
+import { AuctionsService } from "src/app/services/auctions.service";
+import { UsersService } from "src/app/services/users.service";
+import { formatDate } from "@angular/common";
 
 @Component({
-  selector: 'app-edit-auction',
-  templateUrl: './edit-auction.component.html',
-  styleUrls: ['./edit-auction.component.css'],
+  selector: "app-edit-auction",
+  templateUrl: "./edit-auction.component.html",
+  styleUrls: ["./edit-auction.component.css"],
 })
 export class EditAuctionComponent implements OnInit {
   auctionId: number;
   auctionListId: number;
-  conditions = ['new', 'used'];
+  conditions = ["new", "used"];
   users = [];
   auctionForm: FormGroup;
-  formatDate = 'yyyy-MM-dd';
-  locale = 'pt';
+  formatDate = "yyyy-MM-dd";
+  locale = "pt";
   isLoading = false;
 
   constructor(
@@ -38,7 +38,7 @@ export class EditAuctionComponent implements OnInit {
     });
 
     this.route.params.subscribe((params: Params) => {
-      this.auctionId = params['id'];
+      this.auctionId = params["id"];
       this.isLoading = true;
       this.userService.getUsers().subscribe((response: any) => {
         this.users = response;
@@ -51,7 +51,7 @@ export class EditAuctionComponent implements OnInit {
               : 0;
             let userId = response.auctionList[0]
               ? response.auctionList[0].user.userID
-              : '';
+              : "";
             this.auctionListId = response.auctionList[0].auctionListID;
             this.isLoading = false;
 
@@ -100,8 +100,8 @@ export class EditAuctionComponent implements OnInit {
     this.auctionService
       .putAuction(this.auctionId, auctionObject)
       .subscribe((response: any) => {
-        this.router.navigate(['/auctions'], {
-          state: { sucessMessage: 'Auction was edited!' },
+        this.router.navigate(["/auctions"], {
+          state: { sucessMessage: "Auction was edited!" },
         });
       });
   }
